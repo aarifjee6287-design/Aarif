@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="इंग्लिश मूवी कंटेंट को हिंदी में बदलें और SEO ऑप्टिमाइज़ करें। महत्वपूर्ण कोड पर स्वचालित हाइपरलिंक जोड़ें।">
+    <title>English to Hindi Movie Converter - SEO Optimized Tool</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Nirmala UI', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            direction: ltr;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1a237e 0%, #311b92 100%);
+            color: white;
+            padding: 25px 30px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .language-selector {
+            display: flex;
+            justify-content: center;
+            margin-top: 15px;
+        }
+        
+        .lang-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            padding: 8px 20px;
+            margin: 0 5px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .lang-btn.active {
+            background: white;
+            color: #311b92;
+        }
+        
+        .main-content {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 30px;
+        }
+        
+        .input-section, .output-section {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+        }
+        
+        .section-title {
+            color: #1a237e;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e0e0e0;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-title i {
+            margin-right: 10px;
+        }
+        
+        textarea {
+            width: 100%;
+            height: 250px;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 1rem;
+            resize: vertical;
+            margin-bottom: 20px;
+            transition: border-color 0.3s;
+        }
+        
+        textarea:focus {
+            outline: none;
+            border-color: #5c6bc0;
+        }
+        
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .btn i {
+            margin-right: 8px;
+        }
+        
+        .btn-primary {
+            background-color: #5c6bc0;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #3f51b5;
+            transform: translateY(-3px);
+        }
+        
+        .btn-secondary {
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #e0e0e0;
+        }
+        
+        .seo-features {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        
+        .seo-features h3 {
+            color: #1a237e;
+            margin-bottom: 15px;
+        }
+        
+        .feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .feature i {
+            color: #4caf50;
+            margin-right: 10px;
+        }
+        
+        .output-container {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            min-height: 300px;
+            border: 2px dashed #ddd;
+        }
+        
+        .code-link {
+            color: #3f51b5;
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px dotted #3f51b5;
+            transition: all 0.2s;
+        }
+        
+        .code-link:hover {
+            color: #1a237e;
+            border-bottom: 1px solid #1a237e;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e8eaf6;
+            border-radius: 10px;
+        }
+        
+        .stat-box {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #1a237e;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f5f7fa;
+            color: #666;
+            font-size: 0.9rem;
+            border-top: 1px solid #eee;
+        }
+        
+        .highlight {
+            background-color: #fff9c4;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        
+        .keyword {
+            background-color: #e3f2fd;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        
+        @media (max-width: 768px) {
+            .main-content {
+                flex-direction: column;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .controls {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>English Movie to Hindi Converter</h1>
+            <p>इंग्लिश मूवी कंटेंट को हिंदी में बदलें, SEO ऑप्टिमाइज़ करें और महत्वपूर्ण कोड पर स्वचालित हाइपरलिंक जोड़ें।</p>
+            
+            <div class="language-selector">
+                <button class="lang-btn active">English</button>
+                <button class="lang-btn">हिन्दी</button>
+            </div>
+        </header>
+        
+        <div class="main-content">
+            <div class="input-section">
+                <div class="section-title">
+                    <i class="fas fa-film"></i> इनपुट मूवी कंटेंट (English)
+                </div>
+                
+                <textarea id="englishInput" placeholder="यहाँ अपना इंग्लिश मूवी कंटेंट पेस्ट करें... उदाहरण: In the movie 'The Matrix', Neo discovers that the world he lives in is a simulated reality created by machines to subdue humanity...">
+In the movie 'The Matrix', Neo discovers that the world he lives in is a simulated reality created by machines to subdue humanity. He is then drawn into a rebellion against the machines. The film explores themes of reality, identity, and control.
+
+The movie uses groundbreaking visual effects, especially the 'bullet time' technique. Key characters include Neo (The One), Morpheus, Trinity, and Agent Smith.
+
+Important code elements: JavaScript for interactive effects, CSS for styling, HTML for structure, and Python for backend processing.</textarea>
+                
+                <div class="controls">
+                    <button class="btn btn-primary" id="convertBtn">
+                        <i class="fas fa-language"></i> हिंदी में कन्वर्ट करें
+                    </button>
+                    <button class="btn btn-secondary" id="optimizeBtn">
+                        <i class="fas fa-search"></i> SEO ऑप्टिमाइज़ करें
+                    </button>
+                    <button class="btn btn-secondary" id="clearBtn">
+                        <i class="fas fa-trash"></i> क्लियर करें
+                    </button>
+                </div>
+                
+                <div class="seo-features">
+                    <h3><i class="fas fa-star"></i> SEO ऑप्टिमाइज़ेशन फीचर्स</h3>
+                    <div class="feature">
+                        <i class="fas fa-check-circle"></i> मेटा डेस्क्रिप्शन और कीवर्ड ऑटो-जनरेट
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-check-circle"></i> कोड एलिमेंट्स पर ऑटो हाइपरलिंक
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-check-circle"></i> रीडेबल URL स्ट्रक्चर
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-check-circle"></i> सर्च इंजन फ्रेंडली हेडिंग्स
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-check-circle"></i> मोबाइल रेस्पॉन्सिव डिज़ाइन
+                    </div>
+                </div>
+            </div>
+            
+            <div class="output-section">
+                <div class="section-title">
+                    <i class="fas fa-file-alt"></i> आउटपुट (हिंदी में)
+                </div>
+                
+                <div class="output-container" id="hindiOutput">
+                    <p>कन्वर्ट किया हुआ कंटेंट यहाँ दिखाई देगा। कन्वर्ट बटन पर क्लिक करें।</p>
+                    
+                    <div id="processedContent" style="display: none;">
+                        <h3 class="highlight">मैट्रिक्स मूवी का हिंदी सारांश</h3>
+                        
+                        <p>फिल्म 'द मैट्रिक्स' में, <span class="keyword">नियो</span> को पता चलता है कि जिस दुनिया में वह रहता है वह एक सिम्युलेटेड रियलिटी है जो मानवता को वश में करने के लिए मशीनों द्वारा बनाई गई है। फिर उसे मशीनों के विरुद्ध विद्रोह में शामिल कर लिया जाता है। यह फिल्म वास्तविकता, पहचान और नियंत्रण के विषयों की खोज करती है।</p>
+                        
+                        <p>फिल्म में अभूतपूर्व विजुअल इफेक्ट्स का उपयोग किया गया है, विशेष रूप से 'बुलेट टाइम' तकनीक। मुख्य पात्रों में <span class="keyword">नियो (द वन)</span>, <span class="keyword">मोर्फियस</span>, <span class="keyword">ट्रिनिटी</span> और <span class="keyword">एजेंट स्मिथ</span> शामिल हैं।</p>
+                        
+                        <h4>तकनीकी पहलू:</h4>
+                        <p>इंटरैक्टिव इफेक्ट्स के लिए <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" class="code-link">JavaScript</a>, स्टाइलिंग के लिए <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" class="code-link">CSS</a>, संरचना के लिए <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" class="code-link">HTML</a>, और बैकएंड प्रोसेसिंग के लिए <a href="https://www.python.org/" target="_blank" class="code-link">Python</a> का उपयोग किया गया है।</p>
+                        
+                        <div class="seo-features" style="margin-top: 20px;">
+                            <h4>SEO ऑप्टिमाइज़ेशन:</h4>
+                            <p><strong>मेटा डेस्क्रिप्शन:</strong> मैट्रिक्स मूवी का हिंदी सारांश - फिल्म की कहानी, थीम और तकनीकी पहलुओं का विवरण।</p>
+                            <p><strong>कीवर्ड्स:</strong> मैट्रिक्स फिल्म, हिंदी सारांश, नियो, मोर्फियस, बुलेट टाइम तकनीक, वर्चुअल रियलिटी</p>
+                            <p><strong>URL स्ट्रक्चर:</strong> example.com/matrix-movie-hindi-summary-seo-optimized</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="stats">
+                    <div class="stat-box">
+                        <div class="stat-value" id="wordCount">0</div>
+                        <div class="stat-label">शब्द</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value" id="linkCount">0</div>
+                        <div class="stat-label">हाइपरलिंक</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value" id="seoScore">0%</div>
+                        <div class="stat-label">SEO स्कोर</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© 2023 English to Hindi Movie Converter Tool | यह टूल शैक्षिक उद्देश्यों के लिए बनाया गया है</p>
+            <p>सभी फिल्म नाम और सामग्री उनके संबंधित मालिकों की संपत्ति हैं।</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Elements
+            const convertBtn = document.getElementById('convertBtn');
+            const optimizeBtn = document.getElementById('optimizeBtn');
+            const clearBtn = document.getElementById('clearBtn');
+            const englishInput = document.getElementById('englishInput');
+            const hindiOutput = document.getElementById('hindiOutput');
+            const processedContent = document.getElementById('processedContent');
+            const wordCountEl = document.getElementById('wordCount');
+            const linkCountEl = document.getElementById('linkCount');
+            const seoScoreEl = document.getElementById('seoScore');
+            const langButtons = document.querySelectorAll('.lang-btn');
+            
+            // Language selector functionality
+            langButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    langButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    if (this.textContent === 'हिन्दी') {
+                        document.querySelector('header h1').textContent = 'अंग्रेजी फिल्म हिंदी कनवर्टर';
+                        document.querySelector('header p').textContent = 'अंग्रेजी फिल्म सामग्री को हिंदी में बदलें, एसईओ अनुकूलित करें और महत्वपूर्ण कोड पर स्वचालित हाइपरलिंक जोड़ें।';
+                        document.querySelector('.input-section .section-title').innerHTML = '<i class="fas fa-film"></i> इनपुट फिल्म सामग्री (अंग्रेजी)';
+                        englishInput.placeholder = "अपनी अंग्रेजी फिल्म सामग्री यहाँ पेस्ट करें...";
+                        convertBtn.innerHTML = '<i class="fas fa-language"></i> हिंदी में कनवर्ट करें';
+                        optimizeBtn.innerHTML = '<i class="fas fa-search"></i> एसईओ अनुकूलित करें';
+                        clearBtn.innerHTML = '<i class="fas fa-trash"></i> साफ करें';
+                        document.querySelector('.output-section .section-title').innerHTML = '<i class="fas fa-file-alt"></i> आउटपुट (हिंदी में)';
+                    } else {
+                        document.querySelector('header h1').textContent = 'English Movie to Hindi Converter';
+                        document.querySelector('header p').textContent = 'Convert English movie content to Hindi, optimize for SEO, and automatically add hyperlinks to important code elements.';
+                        document.querySelector('.input-section .section-title').innerHTML = '<i class="fas fa-film"></i> Input Movie Content (English)';
+                        englishInput.placeholder = "Paste your English movie content here... Example: In the movie 'The Matrix', Neo discovers...";
+                        convertBtn.innerHTML = '<i class="fas fa-language"></i> Convert to Hindi';
+                        optimizeBtn.innerHTML = '<i class="fas fa-search"></i> Optimize SEO';
+                        clearBtn.innerHTML = '<i class="fas fa-trash"></i> Clear';
+                        document.querySelector('.output-section .section-title').innerHTML = '<i class="fas fa-file-alt"></i> Output (in Hindi)';
+                    }
+                });
+            });
+            
+            // Conversion function (simulated)
+            function convertToHindi(text) {
+                // This is a simplified conversion for demonstration
+                // In a real application, you would use a proper translation API
+                
+                const conversions = {
+                    "movie": "फिल्म",
+                    "The Matrix": "द मैट्रिक्स",
+                    "Neo": "नियो",
+                    "discovers": "पता चलता है",
+                    "world": "दुनिया",
+                    "simulated reality": "सिम्युलेटेड रियलिटी",
+                    "machines": "मशीनें",
+                    "humanity": "मानवता",
+                    "rebellion": "विद्रोह",
+                    "film": "फिल्म",
+                    "explores": "खोज करती है",
+                    "themes": "विषयों",
+                    "reality": "वास्तविकता",
+                    "identity": "पहचान",
+                    "control": "नियंत्रण",
+                    "groundbreaking": "अभूतपूर्व",
+                    "visual effects": "विजुअल इफेक्ट्स",
+                    "bullet time": "बुलेट टाइम",
+                    "technique": "तकनीक",
+                    "key characters": "मुख्य पात्र",
+                    "Morpheus": "मोर्फियस",
+                    "Trinity": "ट्रिनिटी",
+                    "Agent Smith": "एजेंट स्मिथ",
+                    "JavaScript": "JavaScript",
+                    "interactive effects": "इंटरैक्टिव इफेक्ट्स",
+                    "CSS": "CSS",
+                    "styling": "स्टाइलिंग",
+                    "HTML": "HTML",
+                    "structure": "संरचना",
+                    "Python": "Python",
+                    "backend processing": "बैकएंड प्रोसेसिंग"
+                };
+                
+                let convertedText = text;
+                
+                // Replace known words and phrases
+                Object.keys(conversions).forEach(english => {
+                    const regex = new RegExp(`\\b${english}\\b`, 'gi');
+                    convertedText = convertedText.replace(regex, conversions[english]);
+                });
+                
+                return convertedText;
+            }
+            
+            // Add hyperlinks to code elements
+            function addCodeHyperlinks(text) {
+                const codeLinks = {
+                    "JavaScript": "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+                    "CSS": "https://developer.mozilla.org/en-US/docs/Web/CSS",
+                    "HTML": "https://developer.mozilla.org/en-US/docs/Web/HTML",
+                    "Python": "https://www.python.org/",
+                    "PHP": "https://www.php.net/",
+                    "SQL": "https://www.w3schools.com/sql/",
+                    "API": "https://developer.mozilla.org/en-US/docs/Web/API",
+                    "JSON": "https://www.json.org/",
+                    "XML": "https://developer.mozilla.org/en-US/docs/Web/XML/XML_introduction",
+                    "React": "https://reactjs.org/",
+                    "Angular": "https://angular.io/",
+                    "Vue": "https://vuejs.org/",
+                    "Node.js": "https://nodejs.org/",
+                    "Django": "https://www.djangoproject.com/",
+                    "Flask": "https://flask.palletsprojects.com/"
+                };
+                
+                let linkedText = text;
+                
+                Object.keys(codeLinks).forEach(code => {
+                    const regex = new RegExp(`\\b${code}\\b`, 'gi');
+                    linkedText = l
